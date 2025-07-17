@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://samair.me/blog/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://samair.me/blog/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://samair.me/blog/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://samair.me/blog/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://samair.me/blog/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="https://samair.me/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="AdAstra Atom">
+
+
+
+ 
+
+<meta name="author" content="samair" />
+<meta name="description" content="My Journey with Pelican: A Static Blog on Raspberry Pi So I decided to try out Pelican for my blog instead of going with the usual WordPress route. Honestly, it&#39;s been quite an experience - some good parts, some frustrating bits, but overall pretty satisfying. Why Pelican? I wanted something simple …" />
+<meta name="keywords" content="">
+
+
+  <meta property="og:site_name" content="AdAstra"/>
+  <meta property="og:title" content="Fun with pelican"/>
+  <meta property="og:description" content="My Journey with Pelican: A Static Blog on Raspberry Pi So I decided to try out Pelican for my blog instead of going with the usual WordPress route. Honestly, it&#39;s been quite an experience - some good parts, some frustrating bits, but overall pretty satisfying. Why Pelican? I wanted something simple …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://samair.me/blog/fun-with-pelican.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-12-03 10:20:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://samair.me/blog/author/samair.html">
+  <meta property="article:section" content="Blog"/>
+  <meta property="og:image" content="">
+
+  <title>AdAstra &ndash; Fun with pelican</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://samair.me/blog/">
+      <img src="https://samair.me/blog/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://samair.me/blog/"></a>
+    </h1>
+
+
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-You can add links in your config file"
+           href="#"
+           target="_blank">
+          <i class="fa-brands fa-You can add links in your config file"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-Another social link"
+           href="#"
+           target="_blank">
+          <i class="fa-brands fa-Another social link"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="fun-with-pelican">Fun with pelican</h1>
+    <p>
+      Posted on Thu 03 December 2020 in <a href="https://samair.me/blog/category/blog.html">Blog</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>My Journey with Pelican: A Static Blog on Raspberry Pi</h1>
+<p>So I decided to try out Pelican for my blog instead of going with the usual WordPress route. Honestly, it's been quite an experience - some good parts, some frustrating bits, but overall pretty satisfying.</p>
+<h2>Why Pelican?</h2>
+<p>I wanted something simple, fast, and didn't want to deal with database headaches. Plus, writing in Markdown felt natural since I was already doing that for my notes anyway. Pelican seemed like a solid choice - Python-based, good documentation, and active community.</p>
+<h2>Setting Up on Raspberry Pi</h2>
+<p>This was actually the fun part! I had an old Raspberry Pi 4 lying around, so thought why not host my blog there itself? The setup was straightforward - installed Pelican, configured it, and got the basic site running locally first. The Pi handles it pretty well, though initial build times can be a bit slow when you have many posts.</p>
+<p>One thing I learned the hard way - make sure you have enough storage space. The themes and generated files can add up quickly, and SD card space on Pi is always at a premium.</p>
+<h2>CI/CD Pipeline</h2>
+<p>Now this is where things got interesting. I set up a simple CI/CD pipeline using GitHub Actions that automatically deploys to my Raspberry Pi whenever I push changes to the main branch. The workflow goes something like:</p>
+<ol>
+<li>Push markdown files to GitHub</li>
+<li>GitHub Action triggers</li>
+<li>Pelican generates the static site</li>
+<li>Files get deployed to the Pi via SSH</li>
+</ol>
+<p>Took me a few attempts to get the SSH keys and permissions right, but once it was working, it felt like magic. Just write, commit, push - and boom, blog is updated. No more manual FTP uploads or anything.</p>
+<h2>Theme Exploration</h2>
+<p>This was probably the most time-consuming part. Pelican has tons of themes available, and I went through quite a few before settling on one. Some looked great but were missing features I wanted, others had too much going on.</p>
+<p>I tried the default theme first (boring), then moved to some minimalist ones, experimented with a few colorful options, and finally went with something that balanced simplicity with functionality. Pro tip - test themes thoroughly with your actual content, not just the demo posts. What looks good with lorem ipsum might not work with your writing style.</p>
+<h2>The Good Stuff</h2>
+<ul>
+<li>Fast loading times - static sites are just snappy</li>
+<li>Version control for everything - blog posts, themes, configuration</li>
+<li>No security worries about WordPress vulnerabilities</li>
+<li>Minimal server requirements - perfect for Pi hosting</li>
+<li>Writing in Markdown is a breeze</li>
+</ul>
+<h2>The Not-So-Good</h2>
+<ul>
+<li>Theme customization can be tricky if you're not comfortable with Jinja2 templates</li>
+<li>Some plugins aren't as polished as WordPress equivalents</li>
+<li>Limited dynamic features (obviously, since it's static)</li>
+<li>Initial learning curve for configuration</li>
+</ul>
+<h2>Final Thoughts</h2>
+<p>Would I recommend Pelican? Yes, especially if you're comfortable with command line and don't mind getting your hands dirty with configuration. It's perfect for tech blogs, personal sites, or anyone who values simplicity and speed.</p>
+<p>The Raspberry Pi hosting adds a nice DIY touch, though you'll want to ensure you have reliable internet and maybe set up some monitoring. My little Pi has been chugging along nicely, serving pages faster than some expensive hosting solutions I've used before.</p>
+<p>Overall, it's been a solid choice for my blogging setup. Not perfect, but definitely fits my workflow and requirements well enough.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " AdAstra ",
+  "url" : "https://samair.me/blog",
+  "image": "",
+  "description": ""
+}
+</script>
+</body>
+</html>
