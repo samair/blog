@@ -2,5 +2,4 @@ Title: F1 Movie
 Date: 2010-12-03 10:20
 Category: Review
 
-
-# What the F1!
+What the F1!
