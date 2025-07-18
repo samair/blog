@@ -12,6 +12,12 @@ jobs:
        - name: Checkout repository
          uses: actions/checkout@v4
 
+       - name: Checkout Themes repository
+         uses: actions/checkout@v4
+         with:
+           repository: alexandrevicenzi/Flex
+           path: pelican-themes
+
        - name: Install Dependecies
          run: pip install pelican
          
