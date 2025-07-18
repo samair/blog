@@ -19,7 +19,7 @@ jobs:
            path: pelican-themes
 
        - name: Install Dependecies
-         run: pip install pelican
+         run: pip install pelican; pip install Markdown
          
        - name: Generate Html
          run : make html
