@@ -11,6 +11,9 @@ jobs:
      steps:
        - name: Checkout repository
          uses: actions/checkout@v4
+
+       - name: Install Dependecies
+         run: pip install pelican
          
        - name: Generate Html
          run : make html
