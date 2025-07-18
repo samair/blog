@@ -25,5 +25,5 @@ jobs:
          run : make html
 
        - name: Deploy on nginx
-         run:  cp output/* /home/sameer/app/blog
+         run:  cp -r output/* /home/sameer/app/blog
        
