@@ -15,7 +15,7 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-THEME = "/home/sameer/actions-runner/_work/blog/blog//pelican-themes/Flex"
+THEME = "/home/sameer/actions-runner/_work/blog/blog//pelican-themes/"
 
 # Blogroll
 LINKS = (
